@@ -38,6 +38,8 @@ endif()
 fips_begin_lib(turbobadger)
 #    target_include_directories(turbobadger PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/turbobadger/src/tb)
 
+fips_files(config/tb_config.h)
+
 fips_dir(turbobadger/src/tb/animation)
     fips_files(
         tb_animation_utils.h
