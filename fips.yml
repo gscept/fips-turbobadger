@@ -3,6 +3,7 @@
 
 exports:
     header-dirs:
+        - config
         - turbobadger/src/tb
     modules:
         turbobadger: .
