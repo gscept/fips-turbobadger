@@ -36,7 +36,7 @@ elseif (FIPS_MACOS)
 endif()
 
 fips_begin_lib(turbobadger)
-    include_directories(turbobadger/src/tb)
+#    target_include_directories(turbobadger PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/turbobadger/src/tb)
 
 fips_dir(turbobadger/src/tb/animation)
     fips_files(
@@ -113,7 +113,7 @@ fips_dir(turbobadger/src/tb)
 #        tb_clipboard_win.cpp
         tb_color.cpp
         tb_color.h
-        tb_config.h
+#        tb_config.h
         tb_core.cpp
         tb_core.h
         tb_debug.cpp
@@ -279,6 +279,7 @@ elseif(FIPS_MSVC)
     endif()
 
     string(REPLACE "/WX" "/WX-" CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS}) # disable warning as error due GCC pragmas
+    target_compile_options(turbobadger PUBLIC /wd4267)
 endif()
 
 if (NOT FIPS_IMPORT)
