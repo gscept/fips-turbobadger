@@ -1,14 +1,6 @@
 # fips-turbobadger
 ---
 
-imports:
-    fips-glfw:
-        git: https://github.com/fips-libs/fips-glfw.git
-
-run:
-    demo:
-        cwd: turbobadger
-
 exports:
     header-dirs:
         - turbobadger/src/tb
