@@ -42,7 +42,6 @@ fips_dir(config)
         tb_config.h
     )
 
-
 fips_dir(turbobadger/src/tb/animation)
     fips_files(
         tb_animation_utils.h
@@ -288,7 +287,7 @@ endif()
 
 if (NOT FIPS_IMPORT)
 #    fips_finish()
-    target_include_directories(turbobadger PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/config)
+    target_include_directories(turbobadger PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/overrides)
     target_include_directories(turbobadger PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/turbobadger/src/tb)
 endif()
 
