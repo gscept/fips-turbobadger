@@ -65,12 +65,19 @@ fips_dir(turbobadger/src/tb/parser)
         tb_parser.h
     )
 
+fips_dir(turbobadger/src/tb/platform)
+    fips_files(
+        tb_clipboard_interface.h
+        tb_clipboard_interface_dummy.cpp
+        tb_clipboard_interface_dummy.h
+        tb_file_interface.h
+        tb_system_interface.h
+    )
+
 fips_dir(turbobadger/src/tb/renderers)
     fips_files(
         tb_renderer_batcher.cpp
         tb_renderer_batcher.h
-#       tb_renderer_gl.cpp
-#       tb_renderer_gl.h
     )
 
 #fips_dir(turbobadger/src/tb/tests)
@@ -112,9 +119,8 @@ fips_dir(turbobadger/src/tb)
     fips_files(
         tb_bitmap_fragment.cpp
         tb_bitmap_fragment.h
-#        tb_clipboard_dummy.cpp
-#        tb_clipboard_glfw.cpp
-#        tb_clipboard_win.cpp
+        tb_blur.cpp
+        tb_blur.h
         tb_color.cpp
         tb_color.h
 #        tb_config.h
@@ -126,12 +132,11 @@ fips_dir(turbobadger/src/tb)
         tb_dimension.h
         tb_editfield.cpp
         tb_editfield.h
-#        tb_file_posix.cpp
         tb_font_desc.h
         tb_font_renderer.cpp
         tb_font_renderer.h
 #        tb_font_renderer_freetype.cpp
-        tb_font_renderer_stb.cpp
+#        tb_font_renderer_stb.cpp
         tb_font_renderer_tbbf.cpp
         tb_geometry.cpp
         tb_geometry.h
@@ -176,6 +181,8 @@ fips_dir(turbobadger/src/tb)
         tb_select.h
         tb_select_item.cpp
         tb_select_item.h
+        tb_shape_rasterizer.cpp
+        tb_shape_rasterizer.h
         tb_skin.cpp
         tb_skin.h
         tb_skin_util.cpp
@@ -187,10 +194,6 @@ fips_dir(turbobadger/src/tb)
         tb_style_edit.h
         tb_style_edit_content.cpp
         tb_style_edit_content.h
-        tb_system.h
-#        tb_system_android.cpp
-#        tb_system_linux.cpp
-#        tb_system_win.cpp
         tb_tab_container.cpp
         tb_tab_container.h
         tb_tempbuffer.cpp
@@ -267,6 +270,7 @@ fips_end_lib()
 #    endif()
 #endif()
 
+target_compile_definitions(turbobadger PUBLIC TB_STATIC=1)
 
 if (FIPS_CLANG)
     set_target_properties(turbobadger PROPERTIES COMPILE_FLAGS "${TB_NO_EXCEPTIONS} ${TB_NO_RTTI} -Wall -Wextra -Wno-unused-parameter -Wno-unused-function")
