@@ -118,4 +118,8 @@
 //#define TB_NO_STB_IMAGE_IMPLEMENTATION
 #define TB_NO_STB_TRUETYPE_IMPLEMENTATION
 
+#ifdef PostMessage
+#undef PostMessage
+#endif
+
 #endif // TB_CONFIG_H
